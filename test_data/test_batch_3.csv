@@ -1,0 +1,4 @@
+id,name,country,event_type,event_date,event_metadata
+301,Jack,BR,signup,2026-01-17,"{""user_id"": 701, ""session_duration"": 30}"
+302,Kate,MX,purchase,2026-01-17,"{""user_id"": 702, ""amount"": 450.00}"
+303,Leo,BR,purchase,2026-01-18,"{""user_id"": 703, ""amount"": 67.25}"

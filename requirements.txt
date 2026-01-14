@@ -1,0 +1,19 @@
+# ETL Pipeline Dependencies
+
+# Orchestration
+prefect>=2.14.0
+
+# Snowflake
+snowflake-connector-python[pandas]>=3.6.0
+
+# MinIO / S3
+minio>=7.2.0
+
+# Data Processing
+pandas>=2.0.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# Utilities
+pydantic>=2.0.0

@@ -1,0 +1,6 @@
+id,name,country,event_type,event_date,event_metadata
+101,Alice,US,signup,2026-01-10,"{""user_id"": 501, ""session_duration"": 120}"
+102,Bob,UK,purchase,2026-01-11,"{""user_id"": 502, ""amount"": 89.99}"
+103,Charlie,CA,signup,2026-01-12,"{""user_id"": 503, ""session_duration"": 45}"
+104,Diana,US,purchase,2026-01-13,"{""user_id"": 504, ""amount"": 199.50}"
+105,Eve,UK,signup,2026-01-14,"{""user_id"": 505, ""session_duration"": 90}"

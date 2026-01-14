@@ -1,0 +1,5 @@
+id,name,country,event_type,event_date,event_metadata
+201,Frank,JP,purchase,2026-01-15,"{""user_id"": 601, ""amount"": 350.00}"
+202,Grace,AU,signup,2026-01-15,"{""user_id"": 602, ""session_duration"": 75}"
+203,Henry,JP,signup,2026-01-16,"{""user_id"": 603, ""session_duration"": 55}"
+204,Ivy,AU,purchase,2026-01-16,"{""user_id"": 604, ""amount"": 125.75}"

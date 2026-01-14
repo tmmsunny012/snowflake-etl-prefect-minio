@@ -1,0 +1,9 @@
+id,name,country,event_type,event_date,event_metadata
+1,John,DE,signup,2025-01-01,"{""user_id"": 123, ""session_duration"": 45,""amount"": 120.5}"
+2,Maria,FR,purchase,2025-01-02,"{""user_id"": 456, ""amount"": 120.5}"
+3,Hans,DE,signup,2025-01-03,"{""user_id"": 789, ""session_duration"": 30}"
+4,Pierre,FR,signup,2025-01-04,"{""user_id"": 101, ""session_duration"": 60}"
+5,Anna,DE,purchase,2025-01-05,"{""user_id"": 123, ""amount"": 250.0}"
+6,Klaus,DE,signup,2025-01-06,"{""user_id"": 202, ""session_duration"": 15}"
+7,Sophie,US,purchase,2025-01-07,"{""user_id"": 303, ""amount"": 75.25}"
+8,John,DE,purchase,2025-01-08,"{""user_id"": 123, ""amount"": 99.99}"

@@ -1,0 +1,48 @@
+# ===========================================
+# Snowflake CLI Connection Configuration
+# ===========================================
+# Copy this file to config.toml and fill in your values
+# Location: ~/.snowflake/config.toml (global) or ./snowflake/connections/config.toml (local)
+# 
+# IMPORTANT: Never commit config.toml with real credentials!
+# This file is in .gitignore for your protection.
+
+[default]
+# Your Snowflake account identifier (e.g., abc12345.us-east-1)
+account = "your-account-identifier"
+
+# Your Snowflake username
+user = "your-username"
+
+# Authentication method: password, externalbrowser, or keypair
+authenticator = "snowflake"
+
+# Your password (for password auth)
+password = "your-password"
+
+# Default warehouse to use
+warehouse = "ETL_WAREHOUSE"
+
+# Default database
+database = "STAGING_DB"
+
+# Default schema
+schema = "PUBLIC"
+
+# Default role (optional)
+# role = "ACCOUNTADMIN"
+
+# Connection timeout in seconds
+# connection_timeout = 60
+
+# ----------------------------------------
+# Alternative: Key-Pair Authentication
+# ----------------------------------------
+# For production, use key-pair auth instead of password:
+#
+# [default]
+# account = "your-account"
+# user = "your-user"
+# authenticator = "snowflake_jwt"
+# private_key_path = "/path/to/rsa_key.p8"
+# private_key_passphrase = "optional-passphrase"
