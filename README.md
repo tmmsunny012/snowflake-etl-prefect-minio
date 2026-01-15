@@ -126,23 +126,20 @@ snow sql -f snowflake/setup/03_create_stage.sql
 ### 2. Start Docker Services
 
 ```powershell
-docker-compose up -d
+docker-compose up -d --build
 
 # Verify services
 docker-compose ps
 
 # View logs
-docker-compose logs -f prefect-worker
+docker-compose logs -f file-watcher
 ```
 
 ### 3. Run the ETL Pipeline
 
 ```powershell
-# Option A: Run locally (faster for development)
-python flows/etl_flow.py
-
-# Option B: Run via Docker
-.\scripts\run_flow.ps1 -UseDocker
+# Run via Docker
+docker-compose exec prefect-worker python /app/flows/etl_flow.py
 ```
 
 ## Verify Results
@@ -208,8 +205,15 @@ snowflake-etl-prefect-minio/
 ├── requirements.txt          # Python dependencies
 ├── .env.example              # Credentials template
 ├── snowflake/
-│   └── connections/
-│       └── config.toml.example  # Snowflake CLI config template
+│   ├── connections/
+│   │   └── config.toml.example  # Snowflake CLI config template
+│   ├── setup/
+│   │   ├── 01_create_database.sql
+│   │   ├── 02_create_warehouse.sql
+│   │   └── 03_create_stage.sql
+│   └── views/
+│       ├── germany_events.sql
+│       └── recent_signups.sql
 ├── data/
 │   └── sample_events.csv         # Sample data (8 rows)
 ├── test_data/                     # Test files for watcher demo
@@ -255,6 +259,24 @@ docker-compose logs -f file-watcher
 2. New files trigger the ETL pipeline automatically
 3. Processed files are tracked in `metadata/processed_files.json`
 4. Run logs are saved to `logs/run_*.json`
+
+### Test the Watcher
+Sample test files are included in `test_data/` folder. To see the watcher in action:
+
+1. Open MinIO Console: http://localhost:9001 (login: `minioadmin` / `minioadmin`)
+2. Navigate to `etl-bucket`
+3. Drag and drop any CSV from `test_data/` folder into the bucket:
+   - `test_batch_1.csv` (US/UK/CA events)
+   - `test_batch_2.csv` (JP/AU events)
+   - `test_batch_3.csv` (BR/MX events)
+4. Watch the watcher logs to see auto-trigger:
+   ```powershell
+   docker-compose logs -f file-watcher
+   ```
+5. Check the new rows in Snowflake:
+   ```powershell
+   snow sql -q "SELECT COUNT(*) FROM PARENT_EVENTS"
+   ```
 
 ### MinIO Storage Structure
 ```
